@@ -18,7 +18,7 @@ public class TestiSovellus {
             }
             catch(Exception e){
                 listening = false;
-                System.out.println("catch");
+                System.out.println("catched");
                 break;
             }
         }
