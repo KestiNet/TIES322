@@ -1,5 +1,6 @@
 import java.io.*;
 import java.net.*;
+import java.net.Socket.*;
 
 public class TestiSovellus {
     private static DatagramSocket soketti = null;
@@ -23,10 +24,23 @@ public class TestiSovellus {
                 break;
             }
         }
-        ulkoSoketti = new VirtualSocket(54331);
-        System.out.println("Connection Established");
-        DatagramPacket ulkoPaketti = new DatagramPacket();
-        OutputStream palvelimelle = ulkoSoketti.getOutputStream();
+        Socket socket = new Socket("localhost", 54331);
+        System.out.println("Connected!");
+
+        // get the output stream from the socket.
+        OutputStream outputStream = socket.getOutputStream();
+        // create a data output stream from the output stream so we can send data through it
+        DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+
+        System.out.println("Sending string to the ServerSocket");
+
+        // write the message we want to send
+        dataOutputStream.writeUTF("Hello from the other side!");
+        dataOutputStream.flush(); // send the message
+        dataOutputStream.close(); // close the output stream when we're done.
+
+        System.out.println("Closing socket and terminating program.");
+        socket.close();
 
 
     }
