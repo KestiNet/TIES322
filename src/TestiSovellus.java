@@ -3,6 +3,7 @@ import java.net.*;
 
 public class TestiSovellus {
     private static DatagramSocket soketti = null;
+    private static DatagramSocket ulkoSoketti = null;
 
     public static void main(String[] args) throws Exception {
         soketti  = new VirtualSocket(6666);
@@ -22,6 +23,10 @@ public class TestiSovellus {
                 break;
             }
         }
+        ulkoSoketti = new VirtualSocket(54331);
+        System.out.println("Connection Established");
+        DatagramPacket ulkoPaketti = new DatagramPacket();
+        OutputStream palvelimelle = ulkoSoketti.getOutputStream();
 
 
     }
