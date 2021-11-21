@@ -23,7 +23,7 @@ public class TestiSovellus {
 **/
 
             DatagramSocket ds = new DatagramSocket();
-            String str = "Welcome java";
+            String str = "Welcome java ";
             InetAddress ip = InetAddress.getByName("127.0.0.1");
 
             DatagramPacket dp = new DatagramPacket(str.getBytes(), str.length(), ip, 54331);
