@@ -15,7 +15,7 @@ public class Client {
             try {
                 byte[] rec = new byte[256];
                 String str = "Welcome java ";
-
+                //What does this mean "Exception in thread "main" java.net.BindException: Address already in use: bind"
                 //DatagramPacket paketti = new DatagramPacket(rec, rec.length);
                 DatagramSocket ds = new DatagramSocket();
                 // String str =  // remove CRC8

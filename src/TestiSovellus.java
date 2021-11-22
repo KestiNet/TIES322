@@ -34,7 +34,7 @@ public class TestiSovellus {
         dataOutputStream.flush(); // send the message
         dataOutputStream.close(); // close the output stream when we're done.
 
-        System.out.println("Closing socket and terminating program.");
+        System.out.println("Closiing socket and terminating program.");
         socket.close();
 **/
 /**
