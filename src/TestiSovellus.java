@@ -4,24 +4,12 @@ import java.nio.charset.StandardCharsets;
 
 public class TestiSovellus {
 
-    private static DatagramSocket soketti = null;
-    public static void main(String[] args) throws Exception {
-        soketti  = new VirtualSocket(58220);
-        String str = "Welcome java ";
-        DatagramPacket dp = new DatagramPacket(str.getBytes(), str.length());
-        soketti.send(dp);
-        soketti.close();
 
-    }
-}
+   // private static DatagramSocket soketti = null;
+    private static DatagramSocket ulkoSoketti = null;
 
-
-
-
-
-
-
-/**
+    public static void main(String[] args) throws SocketException {
+        /**soketti = new VirtualSocket(6666);
         boolean listening = true;
         while (listening) {
             try {
@@ -34,38 +22,27 @@ public class TestiSovellus {
                 System.out.println(rec[paketti.getLength() - 1]);
 
 
-
             } catch (Exception e) {
                 listening = false;
                 System.out.println("catcheed");
                 break;
             }
+        }**/
+        boolean kokeile = true;
+        while (kokeile) {
+            try {
+                ulkoSoketti = new VirtualSocket();
+                String strn = "Testi";
+                InetAddress ip = InetAddress.getByName("127.0.0.1");
+                DatagramPacket paketti = new DatagramPacket(strn.getBytes(), strn.length(),ip,54331);
+                ulkoSoketti.send(paketti);
+                ulkoSoketti.close();
+            }catch (Exception e){
+                kokeile = false;
+                System.out.println("failed");
+                break;
+            }
         }
+
     }
-}
-**/
-    /**    ulkoSoketti = new VirtualSocket(54331);
-
-        DatagramPacket dataOutputStream = new DatagramPacket();
-        String str = "Moi";
-        DatagramPacket dp = new DatagramPacket(str.getBytes(),str.length(),ulkoSoketti);
-        dataOutputStream.("Hello from the other side!");
-        dataOutputStream.flush(); // send the message
-        dataOutputStream.close(); // close the output stream when we're done.
-
-        System.out.println("Closiing socket and terminating program.");
-        socket.close();
-**/
-/**
-            DatagramSocket ds = new DatagramSocket();
-            String str = "testi";
-            InetAddress ip = InetAddress.getByName("127.0.0.1");
-
-            DatagramPacket dp = new DatagramPacket(str.getBytes(), str.length(), ip, 3000);
-            ds.send(dp);
-            ds.close();**/
-
-
-
-
-
+        }
