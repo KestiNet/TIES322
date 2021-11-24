@@ -9,7 +9,7 @@ public class Client {
     private static DatagramSocket soketti = null;
 
     public static void main(String[] args) throws Exception {
-        soketti = new VirtualSocket(55105);
+        soketti = new VirtualSocket(54331);
         boolean listening = true;
         while (listening) {
             try {
@@ -21,8 +21,9 @@ public class Client {
                 // String str =  // remove CRC8
                 //System.out.println(new String(rec, 0, paketti.getLength() - 1));
                 //System.out.println(rec[paketti.getLength() - 1]);
-                DatagramPacket dp = new DatagramPacket(str.getBytes(), str.length(), 55105);
+                DatagramPacket dp = new DatagramPacket(str.getBytes(), str.length(), 54331);
                 soketti.send(dp);
+                soketti.close();
 
 
             } catch (Exception e) {
