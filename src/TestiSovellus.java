@@ -31,10 +31,11 @@ public class TestiSovellus {
         boolean kokeile = true;
         while (kokeile) {
             try {
+                byte[] bitti = new byte[256];
                 ulkoSoketti = new VirtualSocket();
                 String strn = "Testi";
                 InetAddress ip = InetAddress.getByName("127.0.0.1");
-                DatagramPacket paketti = new DatagramPacket(strn.getBytes(), strn.length(),ip,54331);
+                DatagramPacket paketti = new DatagramPacket(strn.getBytes(), strn.length(), bitti.length,ip,54331);
                 ulkoSoketti.send(paketti);
                 ulkoSoketti.close();
             }catch (Exception e){
