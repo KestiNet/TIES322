@@ -15,9 +15,10 @@ public class VirtualSocket extends DatagramSocket {
 
     public void send(DatagramPacket paketti) throws IOException {
         while (true){
-
+            super.send(paketti);
+            System.out.println("Paketti lähetetty");
+            super.close();
         }
-        InetAddress iposoite = InetAddress.getByName("127.0.0.1");
 
     }
 
