@@ -5,12 +5,15 @@ import java.nio.charset.StandardCharsets;
 public class TestiSovellus {
 
 
+    // private static DatagramSocket soketti = null;
    // private static DatagramSocket soketti = null;
-    private static DatagramSocket ulkoSoketti = null;
+   // private static DatagramSocket datasoc = null;
 
     public static void main(String[] args) throws IOException {
-        /**soketti = new VirtualSocket(6666);
-        boolean listening = true;
+     //   soketti = new VirtualSocket(6666);
+       DatagramSocket datasoc = new DatagramSocket(59489);
+
+      /**  boolean listening = true;
         while (listening) {
             try {
 
@@ -27,13 +30,14 @@ public class TestiSovellus {
                 System.out.println("catcheed");
                 break;
             }
-        }**/
+**/
 
-        DatagramSocket datasoc = new DatagramSocket();
-        String strn = "Welcome to DatagramSocket class";
-        InetAddress ip = InetAddress.getByName("127.0.0.1");
-        DatagramPacket dpac = new DatagramPacket(strn.getBytes(), strn.length(), ip, 65402);
-        datasoc.send(dpac);
-        datasoc.close();
-    }
+            String strn = "Moikka";
+            byte[] bitti = strn.getBytes();
+            InetAddress ip = InetAddress.getByName("localhost");
+            DatagramPacket dpac = new DatagramPacket(bitti, bitti.length, 59489);
+            datasoc.send(dpac);
+            datasoc.close();
+            datasoc.disconnect();
+        }
 }

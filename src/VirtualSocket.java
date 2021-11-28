@@ -14,19 +14,17 @@ public class VirtualSocket extends DatagramSocket {
     }
 
     public void send(DatagramPacket paketti) throws IOException {
-        while(true) {
-            super.send(paketti);
-            System.out.println("Packet sent!");
+
 
     }
-    }
+
 
     public void receive(DatagramPacket packet) throws IOException {
         while (true) {
             Random randGen = new Random();
             super.receive(packet);
             if (randGen.nextDouble() <= p_drop) {
-                System.out.println("Dropper packet");
+                System.out.println("Dropped packet");
             } else {
                 return;
             }
