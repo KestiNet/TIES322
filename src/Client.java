@@ -9,8 +9,8 @@ public class Client {
         VirtualSocket socket = (VirtualSocket) new DatagramSocket();
         String viesti = "Toimiiko lähetys ";
         InetAddress iposoite = InetAddress.getByName("127.0.0.1");
-        DatagramPacket packet = new DatagramPacket(viesti.getBytes(),viesti.length(),iposoite,53641);
-        socket.send(packet);
+        DatagramPacket paketti = new DatagramPacket(viesti.getBytes(),viesti.length(),iposoite,53641);
+        socket.send(paketti);
         socket.close();
     }
 
