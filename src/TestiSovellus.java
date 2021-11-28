@@ -5,15 +5,14 @@ import java.nio.charset.StandardCharsets;
 public class TestiSovellus {
 
 
+    private static DatagramSocket soketti = null;
     // private static DatagramSocket soketti = null;
-   // private static DatagramSocket soketti = null;
-   // private static DatagramSocket datasoc = null;
+    // private static DatagramSocket datasoc = null;
 
     public static void main(String[] args) throws IOException {
-     //   soketti = new VirtualSocket(6666);
-       DatagramSocket datasoc = new DatagramSocket(59489);
+        soketti = new VirtualSocket(6666);
 
-      /**  boolean listening = true;
+        boolean listening = true;
         while (listening) {
             try {
 
@@ -30,14 +29,8 @@ public class TestiSovellus {
                 System.out.println("catcheed");
                 break;
             }
-**/
 
-            String strn = "Moikka";
-            byte[] bitti = strn.getBytes();
-            InetAddress ip = InetAddress.getByName("localhost");
-            DatagramPacket dpac = new DatagramPacket(bitti, bitti.length, 59489);
-            datasoc.send(dpac);
-            datasoc.close();
-            datasoc.disconnect();
+
         }
+    }
 }
