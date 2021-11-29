@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class VirtualSocket extends DatagramSocket {
     private static double p_drop = 0.5;
-    private static  int hidasta = 100;
+    private static  double hidasta = 100000;
 
     public VirtualSocket() throws SocketException {
 
@@ -19,10 +19,16 @@ public class VirtualSocket extends DatagramSocket {
     public void send(DatagramPacket paketti) throws IOException {
         while (true){
             Random hidastus = new Random();
+            try {
+                Thread.sleep((int) (hidastus.nextDouble() * 2 * hidasta));
+                super.send(paketti);
+                System.out.println("Paketti lähetetty");
+                super.close();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
 
-            super.send(paketti);
-            System.out.println("Paketti lähetetty");
-            super.close();
+
         }
 
     }
