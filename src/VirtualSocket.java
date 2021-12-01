@@ -9,7 +9,7 @@ public class VirtualSocket extends DatagramSocket {
     public VirtualSocket() throws SocketException {
         int rekisteri = 111;
         int maski[] = {0x01,0x02,0x04,0x08,0x10,0x20,0x40,0x80};
-        int bit = 0000000x;
+        int bit = 1;
         rekisteri = (rekisteri &~ maski[2]) | (bit << 2);
     }
 
