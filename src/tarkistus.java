@@ -10,7 +10,7 @@ public class tarkistus {
          * @return The crc result
          */
         public static byte crc8(byte data, byte crcInit, byte poly) {
-
+            //Check built-in java tools for CRC check
             byte crc;
             byte polynom;
             int i;
